@@ -232,7 +232,7 @@
                 background-color: #e91e63;
                 height: 2px;
                 box-sizing: border-box;
-                width: 50px;
+                width: 60px;
         }
         
         .footer-col ul li:not(:last-child){
@@ -268,6 +268,56 @@
 
         .social-links a:hover{
                 padding-left: 7px;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 10px 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+                .footer-col h4::before{
+                content: "";
+                position: absolute;
+                left:167px;
+                bottom: -10px;
+                background-color: #e91e63;
+                height: 2px;
+                box-sizing: border-box;
+                width: 60px;
+        }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav li {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .footer .row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-col {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
