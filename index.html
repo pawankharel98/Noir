@@ -66,8 +66,18 @@
         }
         nav a:hover{
             text-decoration: underline;
+            colour: red;
         }
-
+        nav a:hover::before{
+            content: "";
+            position: absolute;
+            left:0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+        }
         .button {
             background-color: #1ab26b;
             color: white;
