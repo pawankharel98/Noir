@@ -1,359 +1,281 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="fabicon.png" type="image" rel="icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <title>Noir</title>
-    <style>  
-    * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            width: 100%;
-            height: 100px;
-            border-bottom: 1px solid rgba(16, 16, 16, 0.1);
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            background: #fff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .inner {
-            width: 100%;
-            max-width: 1300px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0 auto;
-        }
-
-        .logo img {
-            padding-top: 5px;
-            width: 175px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        nav li {
-            list-style: none;
-            margin: 0 7px;
-        }
-         nav li {
-            list-style: none;
-            position: relative;
-            transition: 0.3s;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            display: inline-block;
-        }
-
-        nav li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 3px;
-            background: red;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        nav li:hover::before {
-            transform: scaleX(1);
-        }
-        
-        nav a {
-            color: black;
-            font-weight: 500;
-            text-decoration: none;
-        }
-        nav a:hover{
-            colour: red;
-        }
-        
-        .button {
-            background-color: #1ab26b;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .banner {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('Photo1.jpeg') center/cover no-repeat fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 20px;
-        }
-
-        .banner p {
-            padding: 1rem 0;
-            font-size: 1.2rem;
-        }
-
-        .banner form {
-            background: white;
-            border-radius: 2rem;
-            padding: 0.6rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .search-input {
-            font-size: 1.1rem;
-            width: 100%;
-            border: none;
-            padding: 0.6rem;
-            outline: none;
-        }
-
-        .search-btn {
-            width: 40px;
-            font-size: 1.1rem;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        @media screen and (max-width: 768px) {
-            nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 10px 0;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            .logo img{
-                        height: 54px;
-                        width: 150px;
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            nav li {
-                text-align: center;
-                margin: 10px 0;
-                
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .banner-title {
-                font-size: 2.5rem;
-            }
-
-            .banner p {
-                font-size: 1rem;
-            }
-        }
-        .container{
-                max-width: 1170px;
-                margin:auto;
-        }
-        .row{
-                display: flex;
-                flex-wrap: wrap;
-        }
-        ul{
-                list-style: none;
-        }
-        .footer{
-                background-color: #24262b;
-                padding: 70px 0;
-                width: 100%;
-                z-index: -1;
-        }
-        .footer-col{
-                width: 25%;
-                width: 25%;
-        }
-        
-        .footer-col h4{
-                font-size: 18px;
-                color: #ffffff;
-                text-transform: capitalize;
-                margin-bottom: 35px;
-                font-weight: 500;
-                position: relative;
-        }
-        
-        .footer-col h4::before{
-                content: "";
-                position: absolute;
-                left:0;
-                bottom: -10px;
-                background-color: #e91e63;
-                height: 2px;
-                box-sizing: border-box;
-                width: 60px;
-        }
-        
-        .footer-col ul li:not(:last-child){
-                margin-bottom: 10px;
-        }
-        .footer-col ul li a{
-                font-size: 16px;
-                text-transform: capitalize;
-                color: #ffffff;
-                text-decoration: none;
-                font-weight: 300;
-                color: #bbbbbb;
-                display: block;
-                transition: all 0.3s ease;
-        }
-        .footer-col ul li a:hover{
-                color: #ffffff;
-                padding-left: 8px;
-        }
-        
-        .footer-col .social-links a{
-                display: inline-block;
-                height: 40px;
-                width: 40px;
-                background-color: rgba(255,255,255,0.2);
-                margin:0 10px 10px 0;
-                text-align: center;
-                line-height: 40px;
-                border-radius: 50%;
-                color: #ffffff;
-                transition: all 0.5s ease;
-        }
-
-        .social-links a:hover{
-                padding-left: 7px;
-        }
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 10px 0;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-                .footer-col h4::before{
-                content: "";
-                position: absolute;
-                left:212px;
-                bottom: -10px;
-                background-color: #e91e63;
-                height: 2px;
-                box-sizing: border-box;
-                width: 60px;
-        }
-
-            nav.active {
-                display: flex;
-            }
-
-            nav li {
-                text-align: center;
-                margin: 10px 0;
-            }
-
-            .footer .row {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-col {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noir Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="inner">
-            <div class="logo">
-                <img src="logomain.png" alt="Logo">
-            </div>
-            <div class="menu-toggle">&#9776;</div>
-            <nav>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="page2.html" class="button">LOGIN</a></li>
-                <li><a href="page1.html" class="button">SIGN UP</a></li>
-            </nav>
-    </header>
-        </div>
-         <div class="banner">
-        <div class="container">
-            <h1 class="banner-title">
-                <span>Noir.</span> Blog
-            </h1>
-            <p>Everything you want to know about Blogs</p>
-            <form>
-                <input type="text" class="search-input" placeholder="Find your blog...">
-                <button type="submit" class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
+  <header>
+    <div class="inner">
+      <div class="logo">
+        <img src="logomain.png" alt="Logo" />
+      </div>
+      <div class="menu-toggle">&#9776;</div>
+      <nav>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="page2.html" class="button">LOGIN</a></li>
+        <li><a href="page1.html" class="button">SIGN UP</a></li>
+      </nav>
     </div>
-    <footer class="footer">
-        <div class="container">
+  </header>
+
+  <div class="banner">
+    <div class="container">
+      <h1 class="banner-title"><span>Noir.</span> Blog</h1>
+      <p>Everything you want to know about Blogs</p>
+      <form>
+        <input type="text" class="search-input" placeholder="Find your blog..." />
+        <button type="submit" class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <section class="featured">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Featured Destinations</h2>
+      <p>Explore handpicked destinations that offer extraordinary experiences, breathtaking landscapes, and cultural immersion.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="jpg.jpg" alt="Kyoto" />
+        <div class="label">ASIA</div>
+        <h3>Kyoto’s Ancient Temples & Gardens</h3>
+        <p>Discover the timeless beauty of Japan’s cultural capital, where traditional temples meet stunning seasonal landscapes.</p>
+        <div class="info">7 min read <a href="#">Read more →</a></div>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="jpg.jpg" alt="Santorini" />
+        <div class="label">EUROPE</div>
+        <h3>Santorini’s Whitewashed Wonder</h3>
+        <p>Experience the breathtaking beauty of Greece’s most famous island, where azure domes meet the endless blue sea.</p>
+        <div class="info">5 min read <a href="#">Read more →</a></div>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="jpg.jpg" alt="Marrakech" />
+        <div class="label">AFRICA</div>
+        <h3>Marrakech’s Magical Medinas</h3>
+        <p>Lose yourself in the labyrinthine streets of Morocco’s Red City, where ancient traditions and vibrant markets thrive.</p>
+        <div class="info">6 min read <a href="#">Read more →</a></div>
+      </div>
+       <div class="card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="jpg.jpg" alt="Kyoto" />
+        <div class="label">ASIA</div>
+        <h3>Kyoto’s Ancient Temples & Gardens</h3>
+        <p>Discover the timeless beauty of Japan’s cultural capital, where traditional temples meet stunning seasonal landscapes.</p>
+        <div class="info">7 min read <a href="#">Read more →</a></div>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="jpg.jpg" alt="Santorini" />
+        <div class="label">EUROPE</div>
+        <h3>Santorini’s Whitewashed Wonder</h3>
+        <p>Experience the breathtaking beauty of Greece’s most famous island, where azure domes meet the endless blue sea.</p>
+        <div class="info">5 min read <a href="#">Read more →</a></div>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="jpg.jpg" alt="Marrakech" />
+        <div class="label">AFRICA</div>
+        <h3>Marrakech’s Magical Medinas</h3>
+        <p>Lose yourself in the labyrinthine streets of Morocco’s Red City, where ancient traditions and vibrant markets thrive.</p>
+        <div class="info">6 min read <a href="#">Read more →</a></div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="btn">View All Destinations</button>
+    </div>
+  </section>
+  <section class="guides">
+    <h1>Travel Guides</h1>
+    <p>Popular travel blog posts & guides</p>
+    <div class="grid-container">
+      <div class="card scroll"> 
+        <img src="https://i.imgur.com/ZcLLrkY.jpg" alt="Pyramids in Egypt">
+        <h3>How to Visit the Pyramids in Egypt</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/NxT4YbF.jpg" alt="Nusa Penida">
+        <h3>Nusa Penida Island Guide for Bali</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/3QnQpL6.jpg" alt="Japan">
+        <h3>22 Best Things to Do in Japan</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/oZl4vQC.jpg" alt="Machu Picchu">
+        <h3>10 Things to Do at Machu Picchu in Peru</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/3IXFRAk.jpg" alt="Petra Jordan">
+        <h3>How to Visit Petra in Jordan</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/Ez7d3wV.jpg" alt="Waterfalls Indonesia">
+        <h3>18 Best Waterfalls in Indonesia</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/mKhbUI9.jpg" alt="Islands Indonesia">
+        <h3>26 Best Islands in Indonesia</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/fV5OpRj.jpg" alt="Oahu Hawaii">
+        <h3>38 Best Things to Do in Oahu Hawaii</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/YfZk3lf.jpg" alt="Coron Palawan">
+        <h3>Coron Palawan Island Guide</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/pmlUlfy.jpg" alt="El Nido">
+        <h3>El Nido Palawan Island Guide</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/AZnJXQa.jpg" alt="Komodo Island">
+        <h3>Komodo Island Guide for Indonesia</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/1lN3Zjl.jpg" alt="Waterfalls Iceland">
+        <h3>15 Amazing Waterfalls in Iceland</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/np3l5kG.jpg" alt="Angkor Wat">
+        <h3>Angkor Wat Guide for Cambodia</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/NWxV3Qd.jpg" alt="Bali Waterfalls">
+        <h3>Bali Waterfall Guide & Map</h3>
+      </div>
+      <div class="card scroll">
+        <img src="https://i.imgur.com/VIVFbZu.jpg" alt="Indonesia Volcano">
+        <h3>24 Best Things to Do in Indonesia</h3>
+      </div>
+    </div>
+  </section>
+
+   <section class="latest-stories">
+    <h2>Latest Stories</h2>
+    <p class="subtitle">Personal narratives and experiences that capture the essence of travel, connecting you to places through authentic storytelling.</p>
+    
+    <div class="stories-container">
+      
+      <div class="story-card large-card">
+        <img src="https://images.unsplash.com/photo-1587049352849-6f8e0f94f1a2" alt="Swiss Alps" />
+        <div class="card-content">
+          <span class="tag adventure">ADVENTURE</span>
+          <h3>Finding Solitude: A Solo Trek Through the Swiss Alps</h3>
+          <p>How a challenging two-week journey through mountain passes became a transformative experience of self-discovery.</p>
+          <div class="author">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Emma Richardson"/>
+            <div>
+              <span>Emma Richardson</span>
+              <small>May 1, 2025 • 12 min read</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1589308078055-39fa3fffa7a7" alt="Tuscany cooking" />
+        <div class="card-content">
+          <span class="tag culinary">CULINARY</span>
+          <h3>Pasta Secrets: Learning from Nonna in Tuscany</h3>
+          <p>A week-long immersion in an Italian kitchen revealed centuries-old traditions and unexpected connections.</p>
+          <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Marcus Chen"/>
+            <div>
+              <span>Marcus Chen</span>
+              <small>April 28, 2025 • 8 min read</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <img src="https://images.unsplash.com/photo-1603702718937-7495efdb3a67" alt="Sahara night" />
+        <div class="card-content">
+          <span class="tag culture">CULTURE</span>
+          <h3>Stargazing with Nomads: A Night in the Sahara</h3>
+          <p>When the sun sets over the endless dunes, ancient stories come alive under a canopy of stars unlike any other.</p>
+          <div class="author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Amira Khalid"/>
+            <div>
+              <span>Amira Khalid</span>
+              <small>April 25, 2025 • 9 min read</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-card large-card">
+        <img src="https://images.unsplash.com/photo-1608013562519-3b6b1b1cb270" alt="Tea Ceremony" />
+        <div class="card-content">
+          <span class="tag tradition">TRADITION</span>
+          <h3>The Art of Presence: Lessons from a Japanese Tea Ceremony</h3>
+          <p>In the quiet simplicity of a Kyoto teahouse, I discovered how mindfulness transforms not just travel, but life itself.</p>
+          <div class="author">
+            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="David Nakamura"/>
+            <div>
+              <span>David Nakamura</span>
+              <small>April 12, 2025 • 10 min read</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+
+    <div class="read-more">
+      <button>Read More Stories</button>
+    </div>
+  </section>
+  <section class="philosophy">
+    <div class="philosophy-img">
+      <img src="https://images.unsplash.com/photo-1518085250887-2f903c200fee?auto=format&fit=crop&w=800&q=80" alt="Traveler on mountain"/>
+    </div>
+    <div class="philosophy-text">
+      <button class="tag">Our Philosophy</button>
+      <h2>Travel Deeper, Connect Authentically</h2>
+      <p>We believe travel is more than just visiting places—it's about meaningful connections, cultural understanding, and personal transformation.</p>
+      <ul>
+        <li><strong>Authentic Experiences</strong> – We seek genuine cultural immersion beyond tourist attractions.</li>
+        <li><strong>Responsible Travel</strong> – We promote sustainable practices that respect cultures.</li>
+        <li><strong>Mindful Storytelling</strong> – We share narratives honoring the beauty of diversity.</li>
+      </ul>
+      <button class="btn-dark">About Our Writers</button>
+    </div>
+  </section>
+
+  <section class="moments">
+    <h2>Travel Moments</h2>
+    <p>Glimpses of our journeys captured through the lens.</p>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Boats"/>
+      <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee7d?auto=format&fit=crop&w=800&q=80" alt="Market"/>
+      <img src="https://images.unsplash.com/photo-1533576293534-33c99a4a7e2c?auto=format&fit=crop&w=800&q=80" alt="Temple"/>
+      <img src="https://images.unsplash.com/photo-1571886482294-41f1c2fe2ec2?auto=format&fit=crop&w=800&q=80" alt="Street"/>
+    </div>
+    <p class="instagram">Follow @wanderlust_journal</p>
+  </section>
+
+  <section class="community">
+    <h2>Join Our Travel Community</h2>
+    <p>Subscribe to receive exclusive travel stories, destination guides, and insider tips.</p>
+    <form>
+      <input type="email" placeholder="Your email address" required/>
+      <button type="submit" class="btn-dark">Subscribe</button>
+    </form>
+    <p class="privacy">We respect your privacy. Unsubscribe at any time.</p>
+  </section>
+  <footer class="footer">
+        <div class="containor">
           <div class="row">
             <div class="footer-col">
               <h4>Help</h4>
@@ -372,6 +294,7 @@
                 <li><a href="#">Mandip Libang</a></li>
               </ul>
             </div>
+            
             <div class="footer-col">
               <h4>Made by</h4>
               <ul>
@@ -390,11 +313,45 @@
           </div>
         </div>
       </footer>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script>
-        document.querySelector(".menu-toggle").addEventListener("click", function() {
-            document.querySelector("nav").classList.toggle("active");
-        });
-    </script>
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+
+menuToggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+  document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".story-card");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target); // Animate once
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+});
+  const scrollElements = document.querySelectorAll('.scroll');
+
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+    }
+  });
+});
+
+scrollElements.forEach(el => scrollObserver.observe(el));
+
+  </script>
 </body>
 </html>
