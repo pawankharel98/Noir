@@ -214,7 +214,7 @@ nav a:hover {
 @media (max-width: 768px) {
   .logo img {
     height: 54px;
-    width: 80px;
+    width: 90px;
   }
   nav {
     display: none;
